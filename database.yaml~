@@ -1,0 +1,89 @@
+--- !ruby/object:Library
+books:
+- &2 !ruby/object:Book
+  title: book1
+  author: &1 !ruby/object:Author
+    name: author1
+    biography: biography1
+- &3 !ruby/object:Book
+  title: book2
+  author: &10 !ruby/object:Author
+    name: author2
+    biography: biography2
+- &5 !ruby/object:Book
+  title: book3
+  author: &11 !ruby/object:Author
+    name: author3
+    biography: biography3
+- &6 !ruby/object:Book
+  title: book4
+  author: *1
+orders:
+- !ruby/object:Order
+  date: 2014-12-03 12:30:02.145686810 +02:00
+  book: *2
+  reader: &4 !ruby/object:Reader
+    name: reader1
+    email: email1
+    city: city1
+    street: street1
+    house: house1
+- !ruby/object:Order
+  date: 2014-12-03 12:30:02.145689604 +02:00
+  book: *3
+  reader: *4
+- !ruby/object:Order
+  date: 2014-12-03 12:30:02.145691420 +02:00
+  book: *5
+  reader: *4
+- !ruby/object:Order
+  date: 2014-12-03 12:30:02.145693096 +02:00
+  book: *6
+  reader: *4
+- !ruby/object:Order
+  date: 2014-12-03 12:30:02.145695401 +02:00
+  book: *2
+  reader: &7 !ruby/object:Reader
+    name: reader2
+    email: email2
+    city: city2
+    street: street2
+    house: house2
+- !ruby/object:Order
+  date: 2014-12-03 12:30:02.145697007 +02:00
+  book: *3
+  reader: *7
+- !ruby/object:Order
+  date: 2014-12-03 12:30:02.145698753 +02:00
+  book: *5
+  reader: *7
+- !ruby/object:Order
+  date: 2014-12-03 12:30:02.145700080 +02:00
+  book: *2
+  reader: &8 !ruby/object:Reader
+    name: reader3
+    email: email3
+    city: city3
+    street: street3
+    house: house3
+- !ruby/object:Order
+  date: 2014-12-03 12:30:02.145701756 +02:00
+  book: *2
+  reader: &9 !ruby/object:Reader
+    name: reader4
+    email: email4
+    city: city4
+    street: street4
+    house: house4
+readers:
+- *4
+- *7
+- *8
+- *9
+authors:
+- *1
+- *10
+- *11
+- !ruby/object:Author
+  name: author4
+  biography: biography4
