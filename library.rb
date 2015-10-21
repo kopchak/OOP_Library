@@ -38,7 +38,7 @@ class Library
   end
 
   def popular_book
-    hash_with_books_count
+    hash_with_books_count!
     top_book = @hash.max_by { |key, value| value }.first
     puts "Most popular book: #{top_book}"
     puts "\n"
@@ -46,18 +46,18 @@ class Library
 
   def readers_one_of_the_three_most_popular_books
     books = {}
-    hash_with_books_count
+    hash_with_books_count!
     @hash.max_by { |key, value| books[key] = value }
     3.times { |i| puts "#{i+1}. Popular book: #{books.keys[i]}, have #{books.values[i]} reader(s);"}
     puts "\n"
   end
 
   def save_data file
-    File.open(file, "w") { |file| file.puts(self.to_yaml) }
+    File.open(file, "w") { |file| file.write(self.to_yaml) }
   end
 
   private
-    def hash_with_books_count
+    def hash_with_books_count!
       @hash = @orders.inject(Hash.new(0)) do |count, order|
         count[order.book.title] += 1 
         count

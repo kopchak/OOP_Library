@@ -166,7 +166,17 @@ read: !ruby/object:Library
   orders: *27
   books: *28
   hash:
-    book1: 3
-    book2: 2
-    book3: 1
-    book4: 1
+    book1: 6
+    book2: 4
+    book3: 2
+    book4: 2
+  read: !ruby/object:Library
+    authors: *25
+    readers: *26
+    orders: *27
+    books: *28
+    hash:
+      book1: 3
+      book2: 2
+      book3: 1
+      book4: 1
